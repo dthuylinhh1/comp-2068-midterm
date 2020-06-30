@@ -65,10 +65,12 @@ exports.create = async (req, res) => {
 
 exports.edit = async (req, res) => {
   try {
+    const restaurants = Reservation.schema.paths.restaurant.enumValues;
     const reservation = await Reservation.findById(req.params.id);
     res.render(`${viewPath}/edit`, {
       pageTitle: reservation.restaurant,
-      formData: reservation
+      formData: reservation,
+      restaurants: restaurants
     });
   } catch (error) {
     req.flash('danger', `There was an error accessing this reservation: ${error}`);
