@@ -37,8 +37,11 @@ exports.show = async (req, res) => {
 };
 
 exports.new = (req, res) => {  
+    const restaurants = Reservation.schema.paths.restaurant.enumValues;
+
     res.render(`${viewPath}/new`, {
-        pageTitle: 'New Reservation'
+        pageTitle: 'New Reservation',
+        restaurants: restaurants
     });
 
 };
