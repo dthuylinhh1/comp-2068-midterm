@@ -7,15 +7,19 @@
     <label for="restaurant">Restaurant</label>
     <select name="restaurant" class="form-control">
       <option>Select a Restaurant</option>
-      <% for (let restaurant of restaurants) { %>
-        <option <%= (restaurant === formData.restaurant) && 'selected' %> value="<%= restaurant %>"><%= restaurant %></option>
-      <% } %>
+      <option <%= formData.restaurant && formData.restaurant === 'Kelseys' ? 'selected' : null %> value="Kelseys">Kelseys</option> 
+      <option <%= formData.restaurant && formData.restaurant === 'Montanas' ? 'selected' : null %> value="Montanas">Montanas</option>  
+      <option <%= formData.restaurant && formData.restaurant === 'Outbacks' ? 'selected' : null %> value="Outbacks">Outbacks</option>  
+      <option <%= formData.restaurant && formData.restaurant === 'Harveys' ? 'selected' : null %> value="Harveys">Harveys</option>  
+      <option <%= formData.restaurant && formData.restaurant === 'Swiss Chalet' ? 'selected' : null %> value="Swiss Chalet">Swiss Chalet</option>  
     </select>
   </div>
 
   <div class="form-group">
     <label for="dateAndTime">Date and Time</label>
-    <input type="datetime-local" name="dateAndTime" class="form-control" value="<%= formData.dateAndTime %>">
+    <input type="datetime-local" name="dateAndTime" class="form-control" value="" 
+    <%= (formData.dateAndTime.toLocaleString("en-CA")) %>
+    />
   </div>
 
   <div class="form-group">
