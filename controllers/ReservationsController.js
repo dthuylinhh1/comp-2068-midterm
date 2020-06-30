@@ -36,7 +36,7 @@ exports.show = async (req, res) => {
   }
 };
 
-exports.new = async (req, res) => {  
+exports.new = (req, res) => {  
     res.render(`${viewPath}/new`, {
         pageTitle: 'New Reservation'
     });
